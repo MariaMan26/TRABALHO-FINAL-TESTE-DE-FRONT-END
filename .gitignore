@@ -1,0 +1,7 @@
+# Dependências
+node_modules/
+
+# Ignorar arquivos específicos
+cypress.config.js
+package.json
+package-lock.json
