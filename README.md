@@ -1,74 +1,118 @@
-# RACK+ Frontend Testing (Automação E2E)
+# Trabalho Final - Teste de Front-End (RACK+)
 
-Este repositório contém a suíte de testes automatizados End-to-End (E2E) desenvolvida com **Cypress** para validar o Front-end da aplicação **RACK+**. O projeto foca na garantia de qualidade das interfaces de Login e Homepage, cobrindo aspectos visuais, funcionais e de responsividade.
+Este repositório contém o código front-end (HTML/CSS/JS) das páginas de **Login** e **Homepage** do sistema **RACK+**, juntamente com uma suíte de testes automatizados End-to-End (E2E) desenvolvidos com **Cypress**.
 
----
-
-##  Escopo dos Testes Realizados
-
-A automação cobre os fluxos críticos da aplicação, divididos em dois módulos principais:
-
-### 1. Módulo de Login (`login.cy.js`)
-* **Validação Visual (UI):** Verifica a presença e integridade de elementos estáticos (Logo, Título, Labels, Inputs, Favicon e Background).
-* **Caminho Feliz (Happy Path):** Valida o fluxo de login com credenciais corretas e o redirecionamento para a Homepage.
-* **Tratamento de Erros (Sad Path):**
-    * Valida bloqueio de login com credenciais inválidas.
-    * Valida bloqueio de tentativa de login com campos vazios.
-    * Verifica a exibição de mensagens de erro ("E-mail ou senha incorretos", "Preencha todos os campos").
-    * Valida animações visuais de erro (Efeito "Shake"/Tremor e cor vermelha no texto).
-* **Interatividade:**
-    * Testa a funcionalidade do botão de "Mostrar/Ocultar Senha" (Toggle Visibility).
-    * Verifica se espaços em branco desnecessários (Trim) são ignorados no input.
-* **Navegação:** Valida se os links "Cadastre-se" e "Esqueceu a senha" apontam para os destinos corretos.
-* **Responsividade:** Verifica a adaptação do layout e redimensionamento da logo em dispositivos móveis (Viewport simulado: iPhone X).
-
-### 2. Módulo Homepage (`homepage.cy.js`)
-* **Estrutura de Navegação (Sidebar):** Valida se todos os ícones da barra lateral (Dashboard, Logs, Configurações, etc.) estão visíveis e possuem links funcionais.
-* **Lógica de Negócio (Status das Salas):**
-    * Verifica individualmente cada card de sala (1304 a 1309).
-    * Valida se o indicador de status possui a cor correta (`bg-danger` ou `bg-success`) conforme a regra de negócio.
-* **Menu Mobile (Offcanvas):**
-    * Testa a abertura e fechamento do menu lateral em telas pequenas.
-    * Valida a presença e os links dos itens dentro do menu mobile.
-* **Responsividade (Cross-Device):**
-    * **Desktop:** Garante que elementos mobile (botão hambúrguer) não apareçam.
-    * **Mobile:** Garante que a barra lateral do desktop desapareça e o layout se ajuste para 390x844px.
+🔗 **Link do Repositório:** [https://github.com/MariaMan26/TRABALHO-FINAL-TESTE-DE-FRONT-END](https://github.com/MariaMan26/TRABALHO-FINAL-TESTE-DE-FRONT-END)
 
 ---
 
----Siga as instruções abaixo para configurar o ambiente e executar os testes na sua máquina.
+## Sobre o Projeto
+
+O objetivo deste projeto é garantir a qualidade e o funcionamento correto da interface do usuário através de testes automatizados. Os testes cobrem:
+* Validação de elementos visuais (UI).
+* Comportamento funcional (Login, navegação, interação).
+* Responsividade (Layout Desktop vs. Mobile).
+  
+### Cobertura de Testes E2E (Cypress)
+
+** Login (`login.cy.js`)**
+* **Fluxos de Autenticação:** Cobre o caminho feliz (login com sucesso) e tratativas de erro (credenciais inválidas e campos vazios).
+* **Experiência do Usuário (UX):** Valida feedbacks visuais (mensagens de erro, animação "shake") e interatividade (botão mostrar/ocultar senha).
+* **Responsividade:** Verifica a integridade visual e adaptação de elementos (logo, inputs) em simulação mobile.
+
+** Homepage (`homepage.cy.js`)**
+* **Experiência do Usuário e Responsividade:** Garante a visibilidade correta dos menus de navegação, validando a alternância suave entre a Barra Lateral (Desktop) e o Menu Mobile conforme a resolução do dispositivo.
+* **Validação Visual de Status:** Verifica a renderização dos cards das salas, confirmando se os indicadores de cor (Verde/Vermelho) estão sendo exibidos corretamente.
+* **Integridade dos Elementos:** Assegura que links externos, ícones e imagens estejam presentes, visíveis e funcionais em ambas as versões.
+
+---
 
 ## Pré-requisitos
 
-Antes de começar, certifique-se de ter o **Node.js** instalado em sua máquina.
-* [Download Node.js](https://nodejs.org/) (Recomendado a versão LTS)
+Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
+
+* **Node.js** (versão 12 ou superior): [Download aqui](https://nodejs.org/)
+* **VS Code** (Recomendado): Com a extensão **Live Server** instalada (necessária para rodar o projeto localmente na porta 5500).
 
 ---
 
-##  Passo a Passo para Instalação
+## Instalação
 
-### 1. Clonar o repositório
-Abra o terminal e execute o comando abaixo para baixar os arquivos:
+Siga os passos abaixo para configurar o ambiente de teste:
 
+1.  **Clone o repositório:**
+    Abra seu terminal (Git Bash, Powershell ou Terminal do VS Code) e rode:
+    ```bash
+    git clone https://github.com/MariaMan26/TRABALHO-FINAL-TESTE-DE-FRONT-END.git
+
+2.  **Acesse a pasta do projeto:**
+    ```bash
+    cd TESTE-DE-FRONT-END
+    ```
+
+3.  **Instale as dependências (Cypress):**
+    Execute o comando abaixo para instalar o Cypress localmente no projeto:
+    ```bash
+    npm install cypress --save-dev
+    ```
+    *(Caso não tenha um arquivo `package.json` iniciado, rode `npm init -y` antes do comando acima).*
+
+---
+
+## Configuração do Ambiente Local
+
+**Importante:**
+Os testes foram configurados para rodar buscando a aplicação no endereço:
+`http://127.0.0.1:5500/TESTE-DE-FRONT-END/...`
+
+Para que os testes funcionem sem erros:
+1.  Abra a pasta `TESTE-DE-FRONT-END` no **VS Code**.
+2.  Clique com o botão direito no arquivo `login/loginhtml.html` e selecione **"Open with Live Server"**.
+3.  Certifique-se de que o servidor subiu na porta **5500**.
+
+> Se o seu servidor local rodar em outra porta (ex: 8080), você precisará alterar a constante `LOGIN_URL` dentro dos arquivos `.cy.js` na pasta `cypress/e2e/`.
+
+---
+
+## Como Executar os Testes
+
+Você pode rodar o Cypress de duas maneiras:
+
+### 1. Modo Interativo (Interface Gráfica)
+Ideal para ver os testes acontecendo em tempo real.
 ```bash
-git clone [https://github.com/MariaMan26/TRABALHO-FINAL-TESTE-DE-FRONT-END.git](https://github.com/MariaMan26/TRABALHO-FINAL-TESTE-DE-FRONT-END.git)
+npx cypress open
+```
+1.  Uma janela do Cypress será aberta.
+
+2.  Selecione a opção **"E2E Testing"**.
+
+3.  Escolha o navegador de sua preferência (Chrome, Edge, Electron, etc) e clique em **"Start E2E Testing"**.
+
+4.  Na lista de specs, clique em `login.cy.js` ou `homepage.cy.js` para rodar o teste visualmente.
+
+## 2. Modo Headless (Terminal)
+
+Executa os testes sem abrir a interface gráfica — ideal para CI/CD, pipelines e execuções rápidas.
+```
+npx cypress run
 ```
 
-### 2. Instale as dependências
-Execute o comando abaixo na raiz do projeto para baixar o Cypress e bibliotecas auxiliares:
+### Ao rodar esse comando:
+- Todos os testes da pasta cypress/e2e serão executados.
+- O Cypress utilizará o navegador Electron em modo headless por padrão.
+- Serão gerados:
+  - ✔️ Vídeos de cada spec (em cypress/videos/)
+  - ✔️ Screenshots em caso de falha (em cypress/screenshots/)
+- O resumo da execução aparecerá diretamente no terminal.
 
-```bash
-npm install
-```
+---
 
-### Inicie o Servidor Local (IMPORTANTE)
-Como este é um projeto estático, o Cypress precisa acessar os arquivos via protocolo HTTP.Como este é um projeto estático, o Cypress precisa acessar os arquivos via protocolo HTTP.
 
-* Abra o VS Code na pasta do projeto.
+# Autor
+### Desenvolvido por Caio Gomes de Oliveira
 
-* Abra o arquivo login/loginhtml.html ou homepage/homepagehtml.html.
+### Projeto realizado como avaliação final da disciplina de Testes de Front-End no *SENAI*.
 
-* Clique com o botão direito no código e selecione "Open with Live Server".
 
-* Certifique-se de que o navegador abriu na porta 5500 (Ex: http://127.0.0.1:5500/...).
 
