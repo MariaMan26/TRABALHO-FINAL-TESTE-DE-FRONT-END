@@ -12,6 +12,12 @@ O objetivo deste projeto é garantir a qualidade e o funcionamento correto da in
 * Validação de elementos visuais (UI).
 * Comportamento funcional (Login, navegação, interação).
 * Responsividade (Layout Desktop vs. Mobile).
+
+## Contexto Acadêmico e Objetivos
+
+Este projeto foi desenvolvido como atividade avaliativa final da Unidade Curricular de **Testes de Front-End** no SENAI.
+
+O objetivo principal é realizar a validação da qualidade da interface web desenvolvida anteriormente (RACK+), aplicando técnicas de **Quality Assurance (QA)** através de testes automatizados. Além do caráter avaliativo, este repositório serve como uma ferramenta de **consolidação de aprendizado**.
   
 ### Cobertura de Testes E2E (Cypress)
 
