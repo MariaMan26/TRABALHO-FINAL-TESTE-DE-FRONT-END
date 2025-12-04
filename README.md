@@ -80,6 +80,7 @@ Você pode rodar o Cypress de duas maneiras:
 
 ### 1. Modo Interativo (Interface Gráfica)
 Ideal para ver os testes acontecendo em tempo real.
+Execute o comando abaixo ainda na pasta raiz do projeto apresentada acima
 ```bash
 npx cypress open
 ```
@@ -88,8 +89,13 @@ npx cypress open
 2.  Selecione a opção **"E2E Testing"**.
 
 3.  Escolha o navegador de sua preferência (Chrome, Edge, Electron, etc) e clique em **"Start E2E Testing"**.
+   ![CYPRESS TELA INICIAL APP](/IMG-FOR-READMEMD/abrindocypress.png)
 
 4.  Na lista de specs, clique em `login.cy.js` ou `homepage.cy.js` para rodar o teste visualmente.
+  ![CYPRESS HOMEPAGE NAVEGADOR](/IMG-FOR-READMEMD/homepagecypress.png)
+
+5.  Em seguida, se todos os passos tiverem sido executados corretamente essa deverá ser a tela visualizada.
+   ![CYPRESS TELA INICIAL APP](/IMG-FOR-READMEMD/testcypress.png)
 
 ## 2. Modo Headless (Terminal)
 
@@ -107,7 +113,11 @@ npx cypress run
 - O resumo da execução aparecerá diretamente no terminal.
 
 ---
-
+## Tecnologias Utilizadas
+- HTML5 & CSS3
+- JavaScript
+- Bootstrap 5
+- Cypress (Automação de Testes)
 
 # Autor
 ### Desenvolvido por Caio Gomes de Oliveira
