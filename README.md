@@ -39,7 +39,7 @@ Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em s
 
 * **Node.js** (versão 12 ou superior): [Download aqui](https://nodejs.org/)
 * **VS Code** (Recomendado): Com a extensão **Live Server** instalada (necessária para rodar o projeto localmente na porta 5500).
-
+* **Cypress**: Framework de testes (será instalado nas dependências do projeto).
 ---
 
 ## Instalação
