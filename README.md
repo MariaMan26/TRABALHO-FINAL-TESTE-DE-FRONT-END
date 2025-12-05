@@ -33,6 +33,12 @@ O objetivo principal é realizar a validação da qualidade da interface web des
 
 ---
 
+## Tecnologias Utilizadas
+- HTML5 & CSS3
+- JavaScript
+- Bootstrap 5
+- Cypress (Automação de Testes)
+
 ## Pré-requisitos
 
 Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
@@ -119,11 +125,7 @@ npx cypress run
 - O resumo da execução aparecerá diretamente no terminal.
 
 ---
-## Tecnologias Utilizadas
-- HTML5 & CSS3
-- JavaScript
-- Bootstrap 5
-- Cypress (Automação de Testes)
+
 
 # Autor
 ### Desenvolvido por Caio Gomes de Oliveira
